@@ -24,3 +24,4 @@
 *.rar
 unpackage/
 node_modules/
+dist/
