@@ -113,10 +113,8 @@ export default {
 
     })
     this.zutil.domClass("el-menu-item").forEach((v,k)=>{
-      v.style.color = "red";
+      // v.style.color = "red";
     });
-
-
 
     var _store = this.$store;
     this.curUrlPage = _store.getters.main_getcurUrlPage;
@@ -161,15 +159,15 @@ export default {
   margin: 10px 0;
   border-right: solid 1px #e6e6e6;
 }
-.el-menu {
+.zelscroll .el-menu {
   border: none;
 }
 </style>
 <style>
-.el-scrollbar{
+.zelscroll .el-scrollbar{
   height: 100%;
 }
-.el-scrollbar__wrap{
+.zelscroll .el-scrollbar__wrap{
   overflow: scroll;
   overflow-x: hidden;
 }
