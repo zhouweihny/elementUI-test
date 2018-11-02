@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.zutil = zutil;
 
+// {{ dateTime | time('HH:mm:ss')}}
 Vue.filter('time', function (value, formatString) {
   formatString = formatString || 'YYYY-MM-DD HH:mm';
   return moment(value).format(formatString);

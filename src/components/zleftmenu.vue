@@ -109,23 +109,32 @@ export default {
     let _h = document.documentElement.clientHeight;
     document.querySelector(".zelscroll").style.height = (_h - 81)+'px';
 
+    this.$nextTick(() =>{
+
+    })
+    this.zutil.domClass("el-menu-item").forEach((v,k)=>{
+      v.style.color = "red";
+    });
+
+
+
     var _store = this.$store;
     this.curUrlPage = _store.getters.main_getcurUrlPage;
 
     this.urljson.forEach((v,k) => { 
-        if(v.url == this.curUrlPage){
-          this.activeIndex = v.index;
-          return;
-        }
-        if(v.submenu){
-          let smenu = v.submenu;
-          smenu.forEach((v,k) => { 
-              if(v.url == this.curUrlPage){
-                this.activeIndex = v.index;
-                return;
-              }
-          })
-        }
+      if(v.url == this.curUrlPage){
+        this.activeIndex = v.index;
+        return;
+      }
+      if(v.submenu){
+        let smenu = v.submenu;
+        smenu.forEach((v,k) => { 
+            if(v.url == this.curUrlPage){
+              this.activeIndex = v.index;
+              return;
+            }
+        })
+      }
     })
   },
   methods: {

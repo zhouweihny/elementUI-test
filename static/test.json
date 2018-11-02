@@ -1,0 +1,18 @@
+{
+    "code": "0000",
+    "message": "",
+    "totalRows": 30,
+    "pageSize": 10,
+    "currentPage": 1,
+    "page": true,
+    "data": [
+        {
+            "id": "9F79C6F2E14D4ECE8CBA4640BCA22B75",
+            "bcode": "6E424AD659C04C1BBB4CCB6EE085BD72",
+            "dcode": "10sdax00",
+            "num": "100",
+            "customer": "ajax获取到的数据：江西汇仁堂",
+            "createtime": "2018-08-08 09:22:21"
+        }
+    ]
+}
