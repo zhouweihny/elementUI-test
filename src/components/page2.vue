@@ -17,7 +17,12 @@ export default {
     }
   },
   mounted () {
-    this.fetchData()
+    this.fetchData();
+
+    window.addEventListener("beforeunload",(e)=>{
+      var e=window.event||e;
+      e.returnValue=("您的操作将丢失本页所有内容，您确定这样做吗？");
+    })
   },
   methods: {
     fetchData: async function () {
@@ -31,6 +36,9 @@ export default {
         }
       })
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    next(confirm('确认不保存修改直接离开么？'));
   }
 }
 </script>
