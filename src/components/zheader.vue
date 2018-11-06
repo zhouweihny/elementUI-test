@@ -63,7 +63,7 @@ export default {
     }
   },
   mounted () {
-    
+    console.log('br3')
   },
   computed: {
     curRouter () {
