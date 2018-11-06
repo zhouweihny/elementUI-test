@@ -113,9 +113,6 @@ a {
   .J_div {
     color: #000;
 
-    div {
-      color: red;
-    }
     span {
       display: block;
       height: 30px;
