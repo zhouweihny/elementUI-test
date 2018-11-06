@@ -24,5 +24,14 @@ export default {
 			} 
 		} 
 		return classElements; 
-	} 
+	},
+	scrollTop (selector) {
+		/**
+		 * 滚动到某元素
+		 * scrollTop("#table");
+		 * scrollTop();
+		**/
+    let element = selector && document.querySelector(selector) || window;
+    element.scrollTo(0, 0);
+	}
 }
