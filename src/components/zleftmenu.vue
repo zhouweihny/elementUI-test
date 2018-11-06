@@ -4,7 +4,7 @@
 			<el-row class="tac">
 			  <el-col :span="24">
 			    <el-menu
-			      :default-active="activeIndex"
+			      :default-active="this.$store.getters.get_zurl"
 			      class="el-menu-vertical-demo"
 			      @open="handleOpen"
 			      @close="handleClose" :default-openeds="openeds">
@@ -31,7 +31,6 @@ export default {
   data () {
     return {
       num: 60,
-      openeds: ["2"],
       urljson: [
         {
           "url": "page1",
@@ -101,8 +100,7 @@ export default {
           "tit": "订单管理"
         }
       ],
-      activeIndex: '1',
-      curUrlPage: ''
+      openeds: ["2"]
     }
   },
   mounted () {
@@ -116,24 +114,6 @@ export default {
       // v.style.color = "red";
     });
 
-    /*var _store = this.$store;
-    this.curUrlPage = _store.getters.main_getcurUrlPage;
-
-    this.urljson.forEach((v,k) => { 
-      if(v.url == this.curUrlPage){
-        this.activeIndex = v.index;
-        return;
-      }
-      if(v.submenu){
-        let smenu = v.submenu;
-        smenu.forEach((v,k) => { 
-            if(v.url == this.curUrlPage){
-              this.activeIndex = v.index;
-              return;
-            }
-        })
-      }
-    })*/
   },
   methods: {
 		handleOpen(key, keyPath) {
@@ -144,11 +124,7 @@ export default {
 		},
     jumpUrl(url) {
       if(url && url !== 'javascript:;'){
-
-        this.activeIndex = url;
-
         this.$router.push(url);
-        console.log(url)
       }
     }
   }

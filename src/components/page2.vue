@@ -21,6 +21,7 @@ export default {
   },
   mounted () {
     this.fetchData();
+
   },
   methods: {
     fetchData: async function () {
@@ -36,7 +37,7 @@ export default {
     },
     zbefunload (e) {
       var e=window.event||e;
-      e.returnValue=("您的操作将丢失本页所有内容，您确定这样做吗？");
+      e.returnValue=("确认不保存修改直接离开么？");
     }
   },
   beforeRouteLeave (to, from, next) {
