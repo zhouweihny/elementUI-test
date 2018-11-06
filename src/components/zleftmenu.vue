@@ -35,8 +35,8 @@ export default {
       urljson: [
         {
           "url": "page1",
-          "index": "1",
-          "tit": "page1"
+          "index": "page1",
+          "tit": "页面1"
         },
         {
           "url": "javascript:;",
@@ -45,12 +45,12 @@ export default {
           "submenu": [
             {
               "url": "page2",
-              "index": "2-1",
+              "index": "page2",
               "tit": "page2"
             },
             {
               "url": "page3",
-              "index": "2-2",
+              "index": "page3",
               "tit": "page3"
             },
             {
@@ -116,7 +116,7 @@ export default {
       // v.style.color = "red";
     });
 
-    var _store = this.$store;
+    /*var _store = this.$store;
     this.curUrlPage = _store.getters.main_getcurUrlPage;
 
     this.urljson.forEach((v,k) => { 
@@ -133,7 +133,7 @@ export default {
             }
         })
       }
-    })
+    })*/
   },
   methods: {
 		handleOpen(key, keyPath) {
@@ -143,8 +143,13 @@ export default {
 			console.log(key, keyPath);
 		},
     jumpUrl(url) {
-      if(url && url !== 'javascript:;')
-        this.$router.push(url)
+      if(url && url !== 'javascript:;'){
+
+        this.activeIndex = url;
+
+        this.$router.push(url);
+        console.log(url)
+      }
     }
   }
 }

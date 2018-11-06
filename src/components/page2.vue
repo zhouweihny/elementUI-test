@@ -16,29 +16,34 @@ export default {
       msg: 'page2'
     }
   },
+  created () {
+    window.addEventListener("beforeunload", this.zbefunload)
+  },
   mounted () {
     this.fetchData();
-
-    window.addEventListener("beforeunload",(e)=>{
-      var e=window.event||e;
-      e.returnValue=("您的操作将丢失本页所有内容，您确定这样做吗？");
-    })
   },
   methods: {
     fetchData: async function () {
       let params = {
         name: 'zw'
       }
-      http.get('../static/test.json', {username:''}).then((res)=>{
+      http.get('../static/test.json', params).then((res)=>{
         if (res.data.code == '0000') {
           console.log('请求成功')
           this.msg = res.data.data[0].customer;
         }
       })
+    },
+    zbefunload (e) {
+      var e=window.event||e;
+      e.returnValue=("您的操作将丢失本页所有内容，您确定这样做吗？");
     }
   },
   beforeRouteLeave (to, from, next) {
     next(confirm('确认不保存修改直接离开么？'));
+  },
+  destroyed () {
+    window.removeEventListener("beforeunload", this.zbefunload)
   }
 }
 </script>
