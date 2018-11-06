@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="this.$store.getters.get_zurl" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu :default-active="this.$route.name" class="el-menu-demo" mode="horizontal" @select="handleSelect">
     
     <template v-for="(item,index) in urljson">
       <el-submenu :index='item.index' :key='index' v-if="item.submenu">
