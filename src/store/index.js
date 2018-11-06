@@ -11,7 +11,8 @@ export default new vuex.Store({
 	  main: {
 	    tit: '这是main的store',
 	    zheaderFlag: 1,
-	    curUrlPage: ''
+	    curUrlPage: '',
+	  	zurlindex: 'page1'
 	  }
 	},
 	mutations:{
@@ -23,6 +24,10 @@ export default new vuex.Store({
 	  },
 	  main_getcurUrlPage(state, val){
 	  	state.main.curUrlPage = val;
+	  	console.log(state)
+	  },
+	  change_zurl (state, val) {
+	  	state.main.zurlindex = val;
 	  }
 	},
 	actions:{
@@ -37,7 +42,8 @@ export default new vuex.Store({
 	  },
 	  main_getcurUrlPage(state){
 	  	return state.main.curUrlPage;
-	  }
+	  },
+	  get_zurl: state => state.main.zurlindex
 	},
   modules: {
     S_page1,

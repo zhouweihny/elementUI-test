@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu :default-active="this.$store.getters.get_zurl" class="el-menu-demo" mode="horizontal" @select="handleSelect">
     
     <template v-for="(item,index) in urljson">
       <el-submenu :index='item.index' :key='index' v-if="item.submenu">
@@ -21,7 +21,7 @@ export default {
       urljson: [
         {
           "url": "page1",
-          "index": "1",
+          "index": "page1",
           "tit": "page1"
         },
         {
@@ -31,7 +31,7 @@ export default {
           "submenu": [
             {
               "url": "page2",
-              "index": "21",
+              "index": "page2",
               "tit": "page2"
             },
             {
@@ -48,7 +48,7 @@ export default {
         },
         {
           "url": "page3",
-          "index": "3",
+          "index": "page3",
           "tit": "page3"
         },
         {
@@ -59,29 +59,11 @@ export default {
       ],
       cindex: 0,
       zheaderFlag: 1,
-      activeIndex: '1',
       curUrlPage: ''
     }
   },
   mounted () {
-    var _store = this.$store;
-    this.curUrlPage = _store.getters.main_getcurUrlPage;
-
-    this.urljson.forEach((v,k) => { 
-        if(v.url == this.curUrlPage){
-          this.activeIndex = v.index;
-          return;
-        }
-        if(v.submenu){
-          let smenu = v.submenu;
-          smenu.forEach((v,k) => { 
-              if(v.url == this.curUrlPage){
-                this.activeIndex = v.index;
-                return;
-              }
-          })
-        }
-    })
+    
   },
   computed: {
     curRouter () {
@@ -100,8 +82,9 @@ export default {
       // console.log(key, keyPath);
     },
     jumpUrl(url) {
-      if(url && url !== 'javascript:;')
-        this.$router.push(url)
+      if(url && url !== 'javascript:;'){
+        this.$router.push(url);
+      }
     }
   }
 }
