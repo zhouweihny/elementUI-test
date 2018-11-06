@@ -16,6 +16,17 @@
       </el-select>
     </template>
 
+
+    <h1>sass测试</h1>
+    <div class="J_sass">
+      <p class="J_p">这是P标签</p>
+      <div class="J_div">
+        <span>这是div 下的 span 标签</span>
+      </div>
+    </div>
+
+    <p class="J_p">这是外面的P.J_p标签</p>
+
   </div>
 </template>
 
@@ -89,5 +100,25 @@ ul {
 }
 a {
   color: #42b983;
+}
+</style>
+<style lang="scss" scoped>
+.J_sass {
+  background: red;
+  
+  .J_p {
+    color: #fff;
+  }
+
+  .J_div {
+    color: #000;
+
+    span {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+    }
+  }
 }
 </style>
