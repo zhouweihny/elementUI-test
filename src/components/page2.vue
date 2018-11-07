@@ -3,6 +3,8 @@
     <h1>page2</h1>
     <p>axios get方法，post方法需要后台相应配置</p>
     <p>{{msg}}</p>
+    <h3>msgS</h3>
+    <p>{{msgS}}</p>
   </div>
 </template>
 
@@ -13,7 +15,8 @@ export default {
   name: 'page2',
   data () {
     return {
-      msg: 'page2'
+      msg: 'page2',
+      msgS: ''
     }
   },
   created () {
@@ -21,6 +24,8 @@ export default {
   },
   mounted () {
     this.fetchData();
+
+    this.fetchDataS();
 
   },
   methods: {
@@ -34,6 +39,10 @@ export default {
           this.msg = res.data.data[0].customer;
         }
       })
+    },
+    async fetchDataS () {
+      const {data} = await http.get('../static/test.json', {});
+      this.msgS = JSON.stringify(data)
     },
     zbefunload (e) {
       var e=window.event||e;
