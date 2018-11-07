@@ -29,6 +29,10 @@
 
     <p class="J_ps">我使用了公用sass中个 $base_colo 样式，颜色是 #333 的</p>
     <p class="J_pss">我使用了公用sass中个 $base_colo_high 样式，我是红的</p>
+    <p class="J_ps1">背景本来应该是 #ddd 的，但我在页面重写了</p>
+    <p class="J_ps2">我有边框</p>
+    <p class="J_ps3">我自定义了混合</p>
+    <p class="J_ps4">我继承了楼上，但我字体颜色变了</p>
 
   </div>
 </template>
@@ -134,5 +138,31 @@ a {
 }
 .J_pss {
   color: $base_colo_high;
+}
+
+.J_ps1 {
+  $test_bg: #9f9fbb;
+  background: $test_bg;
+}
+
+@mixin test_border {
+  border: 1px solid #ff0000;
+}
+.J_ps2 {
+  @include test_border;
+}
+
+@mixin test2($border, $bg, $colo) {
+  border: $border;
+  background: $bg;
+  color: $colo;
+}
+.J_ps3 {
+  @include test2(1px solid #ff0000, #74a074, $base_colo)
+}
+
+.J_ps4 {
+  color: #fff;
+  @extend .J_ps3;
 }
 </style>
