@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <p class="J_p">这是外面的P.J_p标签</p>
+    <p class="J_p" ref="zuiref">这是外面的P.J_p标签，但是他有一个ref</p>
 
   </div>
 </template>
@@ -61,6 +61,9 @@ export default {
     this.optionsd.length = 0;
 
     this.addSelc();
+
+    let $p = this.$refs.zuiref;
+    $p.style.color = "#e600ff"
   },
   methods: {
     changedata (val) {
