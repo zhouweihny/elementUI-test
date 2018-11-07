@@ -55,9 +55,9 @@ export default {
               "tit": "page3"
             },
             {
-              "url": "javascript:;",
-              "index": "2-3",
-              "tit": "选项2-3"
+              "url": "page4",
+              "index": "page4",
+              "tit": "page4"
             },
             {
               "url": "javascript:;",

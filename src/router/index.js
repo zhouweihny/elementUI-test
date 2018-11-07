@@ -4,6 +4,7 @@ import mainpage from '@/components/mainpage'
 import page1 from '@/components/page1.vue'
 import page2 from '@/components/page2.vue'
 import page3 from '@/components/page3'
+import page4 from '@/components/page4'
 
 /**
  * 注意：
@@ -35,6 +36,11 @@ export default new Router({
           path: '/page3',
           name: 'page3',
           component: page3
+        },
+        {
+          path: '/page4',
+          name: 'page4',
+          component: page4
         }
       ]
     }
