@@ -4,7 +4,7 @@
 			<el-row class="tac">
 			  <el-col :span="24">
 			    <el-menu
-			      :default-active="this.$store.getters.get_zurl"
+			      :default-active="get_zurl"
 			      class="el-menu-vertical-demo"
 			      @open="handleOpen"
 			      @close="handleClose" :default-openeds="openeds">
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'zleftmenu',
   data () {
@@ -102,6 +104,12 @@ export default {
       ],
       openeds: ["2"]
     }
+  },
+  computed: {
+    ...mapGetters([
+      // 映射 this.get_zurl 为 store.getters.get_zurl
+      'get_zurl'
+    ])
   },
   mounted () {
     let _h = document.documentElement.clientHeight;
