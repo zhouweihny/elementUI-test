@@ -27,6 +27,9 @@
 
     <p class="J_p" ref="zuiref">这是外面的P.J_p标签，但是他有一个ref</p>
 
+    <p class="J_ps">我使用了公用sass中个 $base_colo 样式，颜色是 #333 的</p>
+    <p class="J_pss">我使用了公用sass中个 $base_colo_high 样式，我是红的</p>
+
   </div>
 </template>
 
@@ -93,6 +96,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+@import  "../util/base_sass";
+
 <style scoped>
 h1, h2 {
   font-weight: normal;
@@ -123,5 +128,11 @@ a {
       text-align: left;
     }
   }
+}
+.J_ps {
+  color: $base_colo;
+}
+.J_pss {
+  color: $base_colo_high;
 }
 </style>
